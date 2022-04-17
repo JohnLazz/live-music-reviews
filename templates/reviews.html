@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+    {% for review in reviews %}
+        {{ review.band_name }}<br>
+        {{ review.venue_name }}<br>
+        {{ review.city_name }}, 
+        {{ review.country_name }}<br>
+        {{ review.show_date }}<br>
+        {{ review.review_content }}<br>
+    {% endfor %}
+
+{% endblock %}

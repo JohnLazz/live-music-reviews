@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400&display=swap');
+
+body {
+    font-family: 'Raleway';
+    font-weight: 400;
+    background-color: #A1CCA5;
+    color: #111111;
+}
+
+nav {
+    background-color: #415D43;
+}
+
+/* mobile sidenav background to custom green*/
+#mobile-demo {
+    background-color: #111D13;
+}
+
+/* mobile sidenav text color to white */
+.sidenav li > a {
+    color: white;
+}
