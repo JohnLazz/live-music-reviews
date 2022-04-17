@@ -20,3 +20,7 @@ nav {
 .sidenav li > a {
     color: white;
 }
+
+.register-input {
+    padding-left: 5%;
+}
