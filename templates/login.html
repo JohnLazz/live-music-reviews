@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h4 class="center">Register Your New Account</h4>
+<h4 class="center">Log In To Your Account</h4>
 <br>
 
 <div class="row">
-    <form class="col s10 m6 offset-s1 offset-m3 center" method="POST" action="{{ url_for('register') }}">
+    <form class="col s10 m6 offset-s1 offset-m3 center" method="POST" action="{{ url_for('login') }}">
         <div class="card green lighten-4">
             <div class="row register-input">
                 <div class="input-field col s10">
-                    <i class="fas fa-user-plus prefix"></i>
+                    <i class="fas fa-circle-user prefix"></i>
                     <input id="username" name="username" type="text" minlength="4" 
                         maxlength="20" pattern="^[a-zA-Z0-9]{4,20}$" class="validate" required>
                     <label for="username">Username</label>
@@ -25,7 +25,7 @@
             </div>
             <div class="card-action">
                 <button type="submit" class="btn">
-                    Sign Up <i class="fas fa-right-to-bracket"></i>
+                    Log In <i class="fas fa-right-to-bracket"></i>
                 </button>
             </div>
         </div>
@@ -36,10 +36,10 @@
         <div class="col s12 m4 offset-m4">
             <div class="card green1">
                 <div class="card-content white-text">
-                    <span class="card-title">Have An Account Already?</span>
+                    <span class="card-title">No Account?</span>
                 </div>
                 <div class="card-action">
-                    <a href="{{ url_for('login') }}">Log In</a>
+                    <a href="{{ url_for('register') }}">Register Here</a>
                 </div>
             </div>
         </div>

@@ -24,3 +24,13 @@ nav {
 .register-input {
     padding-left: 5%;
 }
+
+.green1 {
+    background-color: #415D43;
+}
+
+/* resets margins and colour from materialize css for card link*/
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    margin: 0;
+    color: #f08747;
+}
