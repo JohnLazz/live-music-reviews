@@ -24,7 +24,7 @@
                 <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
                 {% if session.current_user %}
                     <li><a href="{{ url_for('add_review') }}">Add Review</a></li>
-                    <li><a href="#">My Reviews</a></li>
+                    <li><a href="{{ url_for('my_reviews') }}">My Reviews</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else %}
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -39,17 +39,13 @@
         <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
         {% if session.current_user %}
             <li><a href="{{ url_for('add_review') }}">Add Review</a></li>
-            <li><a href="#">My Reviews</a></li>
+            <li><a href="{{ url_for('my_reviews') }}">My Reviews</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
         {% else %}
             <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
         {% endif %}
     </ul>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
 
     <section>
         <!-- flash messages -->
@@ -69,6 +65,11 @@
         {% endif %}
         {% endwith %}
     </section>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

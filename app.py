@@ -47,12 +47,13 @@ def register():
         # create session cookie
         session["current_user"] = request.form.get("username").lower()
         flash("Great, your new account is good to go!")
+        return redirect(url_for("get_reviews"))
     return render_template("register.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    # checks user and pword with db and creates session cookie
+# checks user and pword with db and creates session cookie
     if request.method == "POST":
         # check for existing username
         existing_user = mongo.db.users.find_one(
@@ -64,6 +65,7 @@ def login():
                 existing_user["password"], request.form.get("password")):
                 session["current_user"] = request.form.get(
                         "username").lower()
+                return redirect(url_for("my_reviews"))
             else:
                 # wrong password
                 flash("Username and/or Password invalid")
@@ -72,28 +74,30 @@ def login():
         else:
             # wrong username
             flash("Username and/or Password invalid")
-            return redirect(url_for("login"))
+            return redirect(url_for(
+                "login", username=session["current_user"]))
 
     return render_template("login.html")
 
 
 @app.route("/logout")
 def logout():
-    # clear session cookies 
+    # clear session cookies
     flash("Logged Out")
     session.clear()
     return redirect(url_for("login"))
 
 
-@app.route("/my_reviews")
+@app.route("/my_reviews/")
 def my_reviews():
+    # gets user reviews page
     reviews = mongo.db.reviews.find()
-    return render_template("reviews.html", reviews=reviews)
+    return render_template("my_reviews.html", reviews=reviews)
 
 
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
-    # lets user create a new review and adds to db
+# lets user create a new review and adds to db
     if request.method == "POST":
         review = {
             "band_name": request.form.get("band_name"),

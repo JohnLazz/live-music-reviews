@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="white-text center-align"><i class="fas fa-music"></i> My Reviews</h1>
+
+{% for review in reviews %}
+    {% if session.current_user == review.created_by %}
+        <div class="row">
+            <div class="col s12 m10 offset-m1">
+                <div class="black card-panel">
+                    <span class="white-text">
+                        <strong>{{ review.band_name }}</strong> @
+                        {{ review.venue_name }}<br>
+                        {{ review.city_name }},
+                        {{ review.country_name }}.
+                        {{ review.show_date }}<br>
+                        <p>Review:</p>
+                        {{ review.review_content }}<br>
+                        <em>by: {{ review.created_by }}</em>
+                    </span>
+                    <br>
+                    <a href="" class="btn">Edit</a>
+                    <a href="" class="btn right red">Delete</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
