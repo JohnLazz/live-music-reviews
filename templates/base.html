@@ -22,11 +22,14 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
-                <li><a href="#">Add Review</a></li>
-                <li><a href="#">My Reviews</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% if session.current_user %}
+                    <li><a href="#">Add Review</a></li>
+                    <li><a href="#">My Reviews</a></li>
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>
@@ -34,11 +37,14 @@
     <!-- mobile nav -->
     <ul class="sidenav white-text" id="mobile-demo">
         <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
-        <li><a href="#">Add Review</a></li>
-        <li><a href="#">My Reviews</a></li>
-        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-        <li><a href="{{ url_for('login') }}">Log In</a></li>
-        <li><a href="{{ url_for('register') }}">Register</a></li>
+        {% if session.current_user %}
+            <li><a href="#">Add Review</a></li>
+            <li><a href="#">My Reviews</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        {% else %}
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+        {% endif %}
     </ul>
     <main>
         {% block content %}
@@ -48,19 +54,19 @@
     <section>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flash-message center">
-                        <div class="col s6 offset-s3">
-                        <h4 class="green1 white-text">
-                            <br>
-                            {{ message }}
-                            <br><br>
-                        </h4>
-                    </div>
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flash-message center">
+            <div class="col s6 offset-s3">
+                <h4 class="green1 white-text">
+                    <br>
+                    {{ message }}
+                    <br><br>
+                </h4>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
     </section>
 
