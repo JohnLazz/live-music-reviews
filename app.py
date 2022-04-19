@@ -27,6 +27,7 @@ def get_reviews():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    # register a new account user and hashed pword into db
     if request.method == "POST":
         # check for existing username
         existing_user = mongo.db.users.find_one(
@@ -51,6 +52,7 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    # checks user and pword with db and creates session cookie
     if request.method == "POST":
         # check for existing username
         existing_user = mongo.db.users.find_one(
@@ -60,7 +62,7 @@ def login():
             # check password hash
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                    session["current_user"] = request.form.get(
+                session["current_user"] = request.form.get(
                         "username").lower()
             else:
                 # wrong password
@@ -73,6 +75,14 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    # clear session cookies 
+    flash("Logged Out")
+    session.clear()
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
