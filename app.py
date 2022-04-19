@@ -94,6 +94,19 @@ def my_reviews():
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     # lets user create a new review and adds to db
+    if request.method == "POST":
+        review = {
+            "band_name": request.form.get("band_name"),
+            "venue_name": request.form.get("venue_name"),
+            "city_name": request.form.get("city_name"),
+            "country_name": request.form.get("country_name"),
+            "show_date": request.form.get("show_date"),
+            "review_content": request.form.get("review_content"),
+            "created_by": session["current_user"]
+        }
+        mongo.db.reviews.insert_one(review)
+        flash("Thanks for your review!")
+        return redirect(url_for("get_reviews"))
     return render_template("add_review.html")
 
 
