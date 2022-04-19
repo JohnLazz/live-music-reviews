@@ -5,6 +5,7 @@
 
 {% for review in reviews %}
 
+    <!-- only shows reviews created by the current user -->
     {% if session.current_user == review.created_by %}
         <div class="row">
             <div class="col s12 m10 offset-m1">
@@ -21,10 +22,12 @@
                     </span>
                     <br>
                     <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn">Edit</a>
+                    <!-- opens confirm deletion modal -->
                     <a class="btn red modal-trigger" href="#modal{{ loop.index }}">Delete</a>
                 </div>
             </div>
         </div>
+        <!-- modal to confirm deletion of specific review -->
         <div id="modal{{ loop.index }}" class="modal">
           <div class="modal-content">
             <h4>DELETE REVIEW</h4>

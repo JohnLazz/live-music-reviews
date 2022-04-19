@@ -137,9 +137,17 @@ def edit_review(review_id):
 
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
+    # targets _id key from db to delete specific review
     mongo.db.reviews.delete_one({"_id": ObjectId(review_id)})
     flash("Your Review Has Been Deleted")
     return redirect(url_for("my_reviews"))
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
+    return render_template("reviews.html", reviews=reviews)
 
 
 if __name__ == "__main__":

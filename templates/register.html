@@ -3,10 +3,11 @@
 
 <h4 class="center">Register Your New Account</h4>
 <br>
-
+<!-- form inputs gets sent to database to create new user -->
 <div class="row">
     <form class="col s10 m6 offset-s1 offset-m3 center" method="POST" action="{{ url_for('register') }}">
         <div class="card green lighten-4">
+            <!-- username -->
             <div class="row register-input">
                 <div class="input-field col s10">
                     <i class="fas fa-user-plus prefix"></i>
@@ -15,6 +16,7 @@
                     <label for="username">Username</label>
                 </div>
             </div>
+            <!-- passowrd -->
             <div class="row register-input">
                 <div class="input-field col s10">
                     <i class="fas fa-user-lock prefix"></i>
@@ -23,6 +25,7 @@
                     <label for="password">Password</label>
                 </div>
             </div>
+            <!-- submit -->
             <div class="card-action">
                 <button type="submit" class="btn">
                     Sign Up <i class="fas fa-right-to-bracket"></i>
@@ -31,7 +34,7 @@
         </div>
     </form>
 </div>
-
+    <!-- redirect to log in -->
     <div class="row center">
         <div class="col s12 m4 offset-m4">
             <div class="card green1">
