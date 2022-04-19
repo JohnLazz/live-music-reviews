@@ -4,6 +4,7 @@
 <h2 class="white-text center-align"><i class="fas fa-music"></i> My Reviews</h1>
 
 {% for review in reviews %}
+
     {% if session.current_user == review.created_by %}
         <div class="row">
             <div class="col s12 m10 offset-m1">
@@ -20,11 +21,23 @@
                     </span>
                     <br>
                     <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn">Edit</a>
-                    <a href="" class="btn right red">Delete</a>
+                    <a class="btn red modal-trigger" href="#modal{{ loop.index }}">Delete</a>
                 </div>
             </div>
         </div>
+        <div id="modal{{ loop.index }}" class="modal">
+          <div class="modal-content">
+            <h4>DELETE REVIEW</h4>
+            <p>
+              Are you sure you want to delete your review? This cannot be undone!
+              Click 'DELETE' below to confirm or 'CANCEL' to go back.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect btn">CANCEL</a>
+            <a href="{{ url_for('delete_review', review_id=review._id) }}" class="modal-close waves-effect red btn">DELETE</a>
+          </div>
+        </div>    
     {% endif %}
 {% endfor %}
-
 {% endblock %}
