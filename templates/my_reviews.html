@@ -19,7 +19,7 @@
                         <em>by: {{ review.created_by }}</em>
                     </span>
                     <br>
-                    <a href="" class="btn">Edit</a>
+                    <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn">Edit</a>
                     <a href="" class="btn right red">Delete</a>
                 </div>
             </div>

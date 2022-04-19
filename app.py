@@ -53,7 +53,7 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-# checks user and pword with db and creates session cookie
+    # checks user and pword with db and creates session cookie
     if request.method == "POST":
         # check for existing username
         existing_user = mongo.db.users.find_one(
@@ -97,7 +97,7 @@ def my_reviews():
 
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
-# lets user create a new review and adds to db
+    # lets user create a new review and adds to db
     if request.method == "POST":
         review = {
             "band_name": request.form.get("band_name"),
@@ -112,6 +112,27 @@ def add_review():
         flash("Thanks for your review!")
         return redirect(url_for("get_reviews"))
     return render_template("add_review.html")
+
+
+@app.route("/edit_review/<review_id>", methods=["GET", "POST"])
+def edit_review(review_id):
+    # lets user edit a review by replacing values
+    if request.method == "POST":
+        changes = {
+            "band_name": request.form.get("band_name"),
+            "venue_name": request.form.get("venue_name"),
+            "city_name": request.form.get("city_name"),
+            "country_name": request.form.get("country_name"),
+            "show_date": request.form.get("show_date"),
+            "review_content": request.form.get("review_content"),
+            "created_by": session["current_user"]
+        }
+        mongo.db.reviews.replace_one({"_id": ObjectId(review_id)}, changes)
+        flash("Successfully edited your review")
+        return redirect(url_for("my_reviews"))
+
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    return render_template("edit_review.html", review=review)
 
 
 if __name__ == "__main__":
