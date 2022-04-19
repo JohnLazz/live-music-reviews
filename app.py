@@ -91,6 +91,12 @@ def my_reviews():
     return render_template("reviews.html", reviews=reviews)
 
 
+@app.route("/add_review", methods=["GET", "POST"])
+def add_review():
+    # lets user create a new review and adds to db
+    return render_template("add_review.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

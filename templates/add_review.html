@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="white-text center-align">Create a New Review</h3>
+
+<div class="row">
+    <!-- form for user to add a new review -->
+    <form class="col s12 m10 offset-m1" method="POST" action="">
+        <div class="row">
+            <!-- band name -->
+            <div class="input-field col s6">
+                <input id="band_name" name="band_name" type="text" class="validate" required>
+                <label for="band_name">Artist Name</label>
+            </div>
+            <!-- venue name -->
+            <div class="input-field col s6">
+                <input id="venue_name" name="venue_name" type="text" class="validate" required>
+                <label for="venue_name">Venue Name</label>
+            </div>
+            <!-- city name -->
+            <div class="input-field col s4">
+                <input id="city_name" name="city_name" type="text" class="validate" required>
+                <label for="city_name">City</label>
+            </div>
+            <!-- country name -->
+            <div class="input-field col s4">
+                <input id="country_name" name="country_name" type="text" class="validate" required>
+                <label for="country_name">Country</label>
+            </div>
+            <!-- date of show -->
+            <div class="row">
+                <div class="input-field col s4">
+                    <input class="datepicker" id="show_date" name="show_date" type="text" class="validate" required>
+                    <label for="show_date">Show Date</label>
+                </div>
+            </div>
+            <!-- review content -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="review_content" name="review_content" class="materialize-textarea validate"
+                        required></textarea>
+                    <label for="review_content">Write Your Review Here</label>
+                </div>
+            </div>
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center">
+                    <button class="btn waves-effect waves-light" type="submit">Submit
+                        <i class="fa-solid fa-share left"></i>
+                    </button>
+                </div>
+            </div>
+    </form>
+</div>
+{% endblock %}

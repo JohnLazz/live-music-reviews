@@ -23,7 +23,7 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
                 {% if session.current_user %}
-                    <li><a href="#">Add Review</a></li>
+                    <li><a href="{{ url_for('add_review') }}">Add Review</a></li>
                     <li><a href="#">My Reviews</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else %}
@@ -38,7 +38,7 @@
     <ul class="sidenav white-text" id="mobile-demo">
         <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
         {% if session.current_user %}
-            <li><a href="#">Add Review</a></li>
+            <li><a href="{{ url_for('add_review') }}">Add Review</a></li>
             <li><a href="#">My Reviews</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
         {% else %}
