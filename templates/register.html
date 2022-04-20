@@ -6,13 +6,13 @@
 <!-- form inputs gets sent to database to create new user -->
 <div class="row">
     <form class="col s10 m6 offset-s1 offset-m3 center" method="POST" action="{{ url_for('register') }}">
-        <div class="card green lighten-4">
+        <div class="card black white-text z-depth-3">
             <!-- username -->
             <div class="row register-input">
                 <div class="input-field col s10">
                     <i class="fas fa-user-plus prefix"></i>
                     <input id="username" name="username" type="text" minlength="4" 
-                        maxlength="20" pattern="^[a-zA-Z0-9]{4,20}$" class="validate" required>
+                        maxlength="20" pattern="^[a-zA-Z0-9]{4,20}$" class="validate white-text" required>
                     <label for="username">Username</label>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <div class="input-field col s10">
                     <i class="fas fa-user-lock prefix"></i>
                     <input id="password" name ="password" type="password" minlength="5" 
-                        maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$" class="validate" required>
+                        maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$" class="validate white-text" required>
                     <label for="password">Password</label>
                 </div>
             </div>
@@ -37,7 +37,7 @@
     <!-- redirect to log in -->
     <div class="row center">
         <div class="col s12 m4 offset-m4">
-            <div class="card green1">
+            <div class="card black z-depth-3">
                 <div class="card-content white-text">
                     <span class="card-title">Have An Account Already?</span>
                 </div>
