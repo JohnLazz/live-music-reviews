@@ -66,6 +66,12 @@
         {% endwith %}
     </section>
 
+    <header class="valign-wrapper">
+        <div style="position: relative;" class="container">
+            <h1 class="center">Live Music Reviews</h1>
+        </div>
+    </header>
+
     <main>
         {% block content %}
         {% endblock %}
@@ -76,5 +82,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
-
+<footer>
+    <div class="container white-text center-align">
+        <a href="#top" class="brand-logo"><i class="fas fa-music"></i> LMR &copy;</a>
+        <a href="https://facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+</footer>
 </html>

@@ -1,32 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Square+Peg&display=swap');
 
 body {
-    font-family: 'Raleway';
+    font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    background-color: #A1CCA5;
+    background-color: #ffffff;
     color: #111111;
 }
 
 nav {
-    background-color: #415D43;
+    background-color: #111111;
 }
 
 /* mobile sidenav background to custom green*/
 #mobile-demo {
-    background-color: #111D13;
+    background-color: #d1d1d1;
 }
 
 /* mobile sidenav text color to white */
 .sidenav li > a {
-    color: white;
+    color: rgb(0, 0, 0);
+}
+
+header {
+    height: 600px;
+    background: url(https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg);
+    background-size: cover;
+    position: relative;
+}
+
+/* for h1 in header */
+h1 {
+    font-family: 'Square Peg', cursive;
+    text-shadow: 2px 2px #dab84b79;
+    font-size: 500%;
+}
+
+h2 {
+    margin-top: 100px;
+    margin-bottom: 70px;
+}
+
+.search-bar {
+    margin-bottom: 70px;
 }
 
 .register-input {
     padding-left: 5%;
-}
-
-.green1 {
-    background-color: #415D43;
 }
 
 /* resets margins and colour from materialize css for card link*/
@@ -35,6 +54,39 @@ nav {
     color: #f08747;
 }
 
+/* gives button elements some breathing space */
 .btn {
-    margin-top: 5px;
+    margin: 5px;
+}
+
+.review-div {
+    /* uses this border + hr below to create box around a review */
+    border-left: black solid 20px;
+    border-right: black solid 20px;
+    /* margin below overwrites materialize .row margin-bottom */
+    margin-bottom: 0;
+}
+
+hr {
+    height: 30px;
+    background-color: rgb(0, 0, 0);
+    margin: 0 0 0 0;
+    border-style: none;
+}
+
+/* creates space between each review card generated */
+.review-card {
+    margin: 100px 0 100px 0;
+}
+
+footer {
+    height: 75px;
+    padding-top: 25px;
+    background-color: #111111;
+}
+
+footer a {
+    font-size: large;
+    color: white;
+    margin: 0 10px 0 10px;
 }
