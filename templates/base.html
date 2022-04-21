@@ -58,13 +58,16 @@
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
-        <div class="row flash-message center">
+        <div id="hide"class="row flash-message center">
             <div class="col s6 offset-s3">
-                <h4>
-                    <br>
-                    {{ message }}
-                    <br><br>
-                </h4>
+                <div class="card-panel orange">
+                    <h4>
+                        {{ message }}
+                    </h4>
+                    <span>
+                        (Click to close me!)
+                    </span>
+                </div>
             </div>
         </div>
         {% endfor %}
