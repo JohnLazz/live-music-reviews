@@ -47,6 +47,12 @@
         {% endif %}
     </ul>
 
+    <header class="valign-wrapper">
+        <div style="position: relative;" class="container">
+            <h1 class="center">Live Music Reviews</h1>
+        </div>
+    </header>
+
     <section>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
@@ -54,7 +60,7 @@
         {% for message in messages %}
         <div class="row flash-message center">
             <div class="col s6 offset-s3">
-                <h4 class="green1 white-text">
+                <h4>
                     <br>
                     {{ message }}
                     <br><br>
@@ -65,12 +71,6 @@
         {% endif %}
         {% endwith %}
     </section>
-
-    <header class="valign-wrapper">
-        <div style="position: relative;" class="container">
-            <h1 class="center">Live Music Reviews</h1>
-        </div>
-    </header>
 
     <main>
         {% block content %}
