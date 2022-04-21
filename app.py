@@ -105,6 +105,7 @@ def add_review():
             "city_name": request.form.get("city_name"),
             "country_name": request.form.get("country_name"),
             "show_date": request.form.get("show_date"),
+            "rating": request.form.get("rating"),
             "review_content": request.form.get("review_content"),
             "created_by": session["current_user"]
         }
@@ -124,6 +125,7 @@ def edit_review(review_id):
             "city_name": request.form.get("city_name"),
             "country_name": request.form.get("country_name"),
             "show_date": request.form.get("show_date"),
+            "rating": request.form.get("rating"),
             "review_content": request.form.get("review_content"),
             "created_by": session["current_user"]
         }

@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="white-text center-align">Edit Your Review</h3>
+<h3 class="center-align"><i class="fa-solid fa-wand-magic-sparkles"></i> Edit Your Review</h3>
 
 <div class="row">
     <!-- form for user to editd a new review -->
-    <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
+    <form class="col s12 m10 offset-m1" method="POST" 
+        action="{{ url_for('edit_review', review_id=review._id) }}">
         <div class="row">
             <!-- band name -->
             <div class="input-field col s6">
@@ -40,18 +41,24 @@
                 </div>
             </div>
             <!-- review content -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="review_content" name="review_content" class="materialize-textarea validate"
-                        required> {{- review.review_content -}} </textarea>
-                    <label for="review_content">Write Your Review Here</label>
-                </div>
+            <div class="input-field col s10">
+                <textarea id="review_content" name="review_content" 
+                    class="materialize-textarea validate" required>
+                         {{- review.review_content -}} 
+                </textarea>
+                <label for="review_content">Write Your Review Here</label>
             </div>
+            <!-- rating -->
+                <div class="input-field col s2">
+                    <input id="rating" name="rating" type="text" 
+                        pattern="^[1-5]{1,1}$" class="validate" required>
+                    <label for="rating">Rating (1-5)</label>
+                    </div>
             <!-- cancel button -->
             <div class="row">
                 <div class="col s12 center">
-                    <a href="{{ url_for('my_reviews') }}" class="btn waves-effect waves-light" type="submit">Cancel Changes
-                        <i class="fa-solid fa-ban left"></i>
+                    <a href="{{ url_for('my_reviews') }}" class="btn waves-effect waves-light" 
+                        type="submit">Cancel Changes<i class="fa-solid fa-ban left"></i>
                     </a>
                     <button class="btn waves-effect waves-light" type="submit">Confirm Changes
                         <i class="fa-solid fa-share left"></i>

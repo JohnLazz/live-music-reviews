@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="center-align"><i class="fa-solid fa-circle-play"></i> Create a New Review</h2>
+<h3 class="center-align"><i class="fa-solid fa-circle-play"></i> Create a New Review</h3>
 
 <div class="row">
     <!-- form for user to add a new review -->
@@ -35,13 +35,16 @@
                 </div>
             </div>
             <!-- review content -->
-            <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s10">
                     <textarea id="review_content" name="review_content" class="materialize-textarea validate"
                         required></textarea>
                     <label for="review_content">Write Your Review Here</label>
                 </div>
-            </div>
+            <!-- rating -->
+                <div class="input-field col s2">
+                    <input id="rating" name="rating" type="text" pattern="^[1-5]{1,1}$" class="validate" required>
+                    <label for="rating">Rating (1-5)</label>
+                </div>
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center">
@@ -50,6 +53,7 @@
                     </button>
                 </div>
             </div>
+        </div>
     </form>
 </div>
 {% endblock %}

@@ -57,6 +57,15 @@ h2 {
     margin-bottom: 70px;
 }
 
+h3 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.caps {
+    text-transform: capitalize;
+}
+
 /* icon colour on login/register active element */
 .input-field .prefix.active {
     color: #f08747;

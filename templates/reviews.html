@@ -35,7 +35,30 @@
                     {{ review.city_name }}, 
                     {{ review.country_name }}. 
                     {{ review.show_date }}<br>
-                    <p>Review:</p>
+                    <p>Review: 
+                        <!-- adds stars equal to rating -->
+                        {% if review.rating == "1" %}
+                            <i class="fa-solid fa-star"></i>
+                        {% elif review.rating == "2" %}
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        {% elif review.rating == "3" %}
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        {% elif review.rating == "4" %}
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        {% elif review.rating == "5" %}
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        {% endif %}
+                    </p>
                     {{ review.review_content }}<br>
                     <em>by: {{ review.created_by }}</em>
                 </span>
