@@ -5,7 +5,7 @@
 
 <!-- button to take user to top of page -->
 <div class="fixed-action-btn">
-  <a href="#top" class="btn-floating btn-large waves-effect waves-light orange"><i class="fa-solid fa-arrow-up"></i></a>
+    <a href="#top" class="btn-floating btn-large waves-effect waves-light orange"><i class="fa-solid fa-arrow-up"></i></a>
 </div>
 
 {% for review in reviews %}
@@ -13,8 +13,8 @@
     <!-- only shows reviews created by the current user -->
     {% if session.current_user == review.created_by %}
         <div class="row">
-            <div class="col s12 m10 offset-m1">
-                <div class="black card-panel">
+            <div class="col s12 m8 offset-m2 review-card">
+                <div class="black card-panel hoverable z-depth-5">
                     <span class="white-text">
                         <strong>{{ review.band_name }}</strong> @
                         {{ review.venue_name }}<br>
@@ -32,19 +32,20 @@
                 </div>
             </div>
         </div>
+
         <!-- modal to confirm deletion of specific review -->
         <div id="modal{{ loop.index }}" class="modal">
-          <div class="modal-content">
-            <h4>DELETE REVIEW</h4>
-            <p>
-              Are you sure you want to delete your review? This cannot be undone!
-              Click 'DELETE' below to confirm or 'CANCEL' to go back.
-            </p>
-          </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect btn">CANCEL</a>
-            <a href="{{ url_for('delete_review', review_id=review._id) }}" class="modal-close waves-effect red btn">DELETE</a>
-          </div>
+            <div class="modal-content">
+                <h4>DELETE REVIEW</h4>
+                <p>
+                  Are you sure you want to delete your review? This cannot be undone!
+                  Click 'DELETE' below to confirm or 'CANCEL' to go back.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect btn">CANCEL</a>
+                <a href="{{ url_for('delete_review', review_id=review._id) }}" class="modal-close waves-effect red btn">DELETE</a>
+            </div>
         </div>    
     {% endif %}
 {% endfor %}

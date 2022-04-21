@@ -7,6 +7,8 @@ body {
     color: #000000;
 }
 
+/*                                                                              ----     NAV */
+
 nav {
     background-color: #111111;
 }
@@ -20,6 +22,8 @@ nav {
 .sidenav li > a {
     color: rgb(0, 0, 0);
 }
+
+/*                                                                              ----     HEADER */
 
 header {
     height: 600px;
@@ -35,15 +39,30 @@ h1 {
     font-size: 500%;
 }
 
+/*                                                                              ----    SEARCH */
+
+.search-bar {
+    margin-bottom: 50px;
+}
+
+/* cleans up search bar button */
+.review-btn {
+    margin-right: 15px !important;
+}
+
+/*                                                                              ----     GENERAL */
+
 h2 {
     margin-top: 100px;
     margin-bottom: 70px;
 }
 
-.search-bar {
-    margin-bottom: 70px;
+/* icon colour on login/register active element */
+.input-field .prefix.active {
+    color: #f08747;
 }
 
+/* tidy up login/register inputs */
 .register-input {
     padding-left: 5%;
 }
@@ -64,25 +83,22 @@ h2 {
     background-color: #111111;
 }
 
-.review-div {
-    /* uses this border + hr below to create box around a review */
-    border-left: black solid 20px;
-    border-right: black solid 20px;
-    /* margin below overwrites materialize .row margin-bottom */
-    margin-bottom: 0;
-}
-
-hr {
-    height: 30px;
-    background-color: rgb(0, 0, 0);
-    margin: 0 0 0 0;
-    border-style: none;
-}
-
 /* creates space between each review card generated */
 .review-card {
-    margin: 100px 0 100px 0;
+    margin: 50px 0 50px 0;
 }
+
+/*                                                                              ----     DATE PICKER */
+
+.datepicker-date-display, .datepicker-table td.is-selected {
+    background-color: #f08747;
+}
+
+.datepicker-done, .datepicker-cancel, .dropdown-content li>span {
+    color: #e6722a;
+}
+
+/*                                                                              ----     FOOTER */
 
 footer {
     height: 75px;
