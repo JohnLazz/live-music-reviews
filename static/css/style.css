@@ -11,12 +11,12 @@ nav {
     background-color: #111111;
 }
 
-/* mobile sidenav background to custom green*/
+/* mobile sidenav */
 #mobile-demo {
     background-color: #d1d1d1;
 }
 
-/* mobile sidenav text color to white */
+/* mobile sidenav text color*/
 .sidenav li > a {
     color: rgb(0, 0, 0);
 }
@@ -54,7 +54,7 @@ h2 {
     color: #f08747;
 }
 
-/* gives button elements some breathing space */
+/* gives button elements some breathing space and colour*/
 .btn {
     margin: 5px;
     background-color: #e6722a;

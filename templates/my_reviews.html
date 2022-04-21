@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="white-text center-align"><i class="fas fa-music"></i> My Reviews</h1>
+<h2 class="center-align"><i class="fa-regular fa-id-card"></i> My Reviews</h2>
+
+<!-- button to take user to top of page -->
+<div class="fixed-action-btn">
+  <a href="#top" class="btn-floating btn-large waves-effect waves-light orange"><i class="fa-solid fa-arrow-up"></i></a>
+</div>
 
 {% for review in reviews %}
 
