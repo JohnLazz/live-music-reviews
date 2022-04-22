@@ -23,6 +23,11 @@ nav {
     color: rgb(0, 0, 0);
 }
 
+/* fixes music icon in nav changing position on small devices */
+nav .fas {
+    line-height: inherit;
+}
+
 /*                                                                              ----     HEADER */
 
 header {

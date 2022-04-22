@@ -9,10 +9,12 @@
             <div class="input-field col s10 m8">
                 <i class="fas fa-search prefix"></i>
                 <input type="text" name="query" id="query" class="validate white-text" required>
-                <label for="query">Search a band, venue, city or country</label>
+                <label class="hide-on-small-only" for="query">
+                    Search a band, venue, city or country</label>
+                <label class="show-on-small" for="query">Search</label>
             </div>
             <button class="btn left" type="submit">
-                <i class="fas fa-search"></i> Search
+                <i class="fas fa-search"></i>
             </button>
             <a class="btn right review-btn" href="{{ url_for('get_reviews') }}">Reset</a>
         </div>
@@ -21,7 +23,8 @@
 
 <!-- button to take user to top of page -->
 <div class="fixed-action-btn">
-    <a href="#top" class="btn-floating btn-large waves-effect waves-light orange"><i class="fa-solid fa-arrow-up"></i></a>
+    <a href="#top" class="btn-floating btn-large waves-effect waves-light orange">
+        <i class="fa-solid fa-arrow-up"></i></a>
 </div>
 
 <!-- creates card for all reviews in database -->
