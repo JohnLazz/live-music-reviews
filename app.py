@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -21,6 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_reviews")
 def get_reviews():
+    # loads all reviews from database and displays in html
     reviews = mongo.db.reviews.find()
     return render_template("reviews.html", reviews=reviews)
 
@@ -62,7 +63,7 @@ def login():
         if existing_user:
             # check password hash
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                 session["current_user"] = request.form.get(
                         "username").lower()
                 return redirect(url_for("my_reviews"))
@@ -147,6 +148,7 @@ def delete_review(review_id):
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    # searches db index for string provided by user and displays results
     query = request.form.get("query")
     reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
     return render_template("reviews.html", reviews=reviews)
@@ -155,4 +157,4 @@ def search():
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)

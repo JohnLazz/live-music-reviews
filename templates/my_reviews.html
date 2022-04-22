@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col s12 m8 offset-m2 review-card">
                 <div class="black card-panel hoverable z-depth-5">
-                    <span class="white-text">
+                    <div class="white-text">
                         <strong>{{ review.band_name }}</strong> @
                         {{ review.venue_name }}<br>
                         {{ review.city_name }},
@@ -47,7 +47,7 @@
                         </p>
                         {{ review.review_content }}<br>
                         <em>by: {{ review.created_by }}</em>
-                    </span>
+                    </div>
                     <br>
                     <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn">Edit</a>
                     <!-- opens confirm deletion modal -->

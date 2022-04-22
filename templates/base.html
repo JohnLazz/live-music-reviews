@@ -46,12 +46,12 @@
             <li><a href="{{ url_for('register') }}">Register</a></li>
         {% endif %}
     </ul>
-
-    <header class="valign-wrapper">
-        <div style="position: relative;" class="container">
-            <h1 class="center">Live Music Reviews</h1>
-        </div>
-    </header>
+    <!-- main header -->
+<header class="valign-wrapper">
+    <div style="position: relative;" class="container">
+        <h1 class="center">Live Music Reviews</h1>
+    </div>
+</header>
 
     <section>
         <!-- flash messages -->
@@ -74,17 +74,13 @@
         {% endif %}
         {% endwith %}
     </section>
-
+<!-- main content -->
     <main>
         {% block content %}
         {% endblock %}
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
+<!-- footer -->
 <footer>
     <div class="container white-text center-align">
         <a href="#top" class="brand-logo"><i class="fas fa-music"></i> LMR &copy;</a>
@@ -93,4 +89,10 @@
         <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
     </div>
 </footer>
+<!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
 </html>
